@@ -10,60 +10,78 @@
 namespace AnalyticalSystem {
     
     
-    public partial class _Default {
+    public partial class showresult {
         
         /// <summary>
-        /// ltmembersCount control.
+        /// lblSubject control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltmembersCount;
+        protected global::System.Web.UI.WebControls.Label lblSubject;
         
         /// <summary>
-        /// ltUsagePersent control.
+        /// lblStime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltUsagePersent;
+        protected global::System.Web.UI.WebControls.Label lblStime;
         
         /// <summary>
-        /// ltSubjectCount control.
+        /// lblMin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltSubjectCount;
+        protected global::System.Web.UI.WebControls.Label lblMin;
         
         /// <summary>
-        /// tbBegin control.
+        /// lblNquestions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbBegin;
+        protected global::System.Web.UI.WebControls.Label lblNquestions;
         
         /// <summary>
-        /// tbEnd control.
+        /// lblNcans control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbEnd;
+        protected global::System.Web.UI.WebControls.Label lblNcans;
         
         /// <summary>
-        /// btnUpdate control.
+        /// lblGrade control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
+        protected global::System.Web.UI.WebControls.Label lblGrade;
+        
+        /// <summary>
+        /// lbRank control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbRank;
+        
+        /// <summary>
+        /// lblRank control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRank;
     }
 }

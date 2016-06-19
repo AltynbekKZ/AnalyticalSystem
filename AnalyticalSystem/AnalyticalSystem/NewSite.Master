@@ -73,19 +73,19 @@
                   </li>
                   <li><a><i class="fa fa-edit"></i> Өңдеу бөлігі <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Жаңа мәлімет қосу</a>
+                      
+                      <li>
+                          <a href="reviewquestions.aspx">Сұрақтарға шолу</a>
                       </li>
-                      <li><a href="#">Жаңа мәлімет жүктеу</a>
+                      <li><a href="showresult.aspx">Нәтижені көрсету</a>
                       </li>
-                      <li><a href="#">Басқа</a>
+                         <li><a href="takeexam.aspx">Емтихан алу</a>
                       </li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-table"></i> Есеп беру <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Есепті көрсету</a>
-                      </li>
-                      <li><a href="#">Есепті Excel немесе сурет түрінде көшіріп алу</a>
+                     <li><a href="previousexams.aspx">Алдыңғы емтихандар</a>
                       </li>
                     </ul>
                   </li>
@@ -93,14 +93,14 @@
                     <ul class="nav child_menu">
                       <li><a href="Index.aspx">Диаграмма 1</a>
                       </li>
-                      <li><a href="#">Диаграмма 2</a>
+                     <%-- <li><a href="#">Диаграмма 2</a>
                       </li>
                       <li><a href="#">Диаграмма 3</a>
                       </li>
                       <li><a href="#">Диаграмма 4 </a>
                       </li>
                       <li><a href="#">Диаграмма 5</a>
-                      </li>
+                      </li>--%>
                     </ul>
                   </li>
                 </ul>
@@ -120,7 +120,7 @@
                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
               </div>
 
-              <ul class="nav navbar-nav navbar-right">
+            <%--  <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     <img src="Content/new/images/img.jpg" alt="">Асет
@@ -142,7 +142,7 @@
                     </li>
                   </ul>
                 </li>
-              </ul>
+              </ul>--%>
             </nav>
           </div>
 

@@ -7,16 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace AnalyticalSystem
 {
-    public partial class NewSite : System.Web.UI.MasterPage
+    public partial class ForgotPassword : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        protected void OnClick(object sender, EventArgs e)
-        {
-            
         }
     }
 }

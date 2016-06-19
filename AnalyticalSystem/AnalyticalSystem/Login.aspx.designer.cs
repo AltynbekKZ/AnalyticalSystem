@@ -10,60 +10,42 @@
 namespace AnalyticalSystem {
     
     
-    public partial class _Default {
+    public partial class Login {
         
         /// <summary>
-        /// ltmembersCount control.
+        /// lblMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltmembersCount;
+        protected global::System.Web.UI.WebControls.Label lblMsg;
         
         /// <summary>
-        /// ltUsagePersent control.
+        /// tbLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltUsagePersent;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tbLogin;
         
         /// <summary>
-        /// ltSubjectCount control.
+        /// tbPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltSubjectCount;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword tbPassword;
         
         /// <summary>
-        /// tbBegin control.
+        /// lnkBtnLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbBegin;
-        
-        /// <summary>
-        /// tbEnd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbEnd;
-        
-        /// <summary>
-        /// btnUpdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnLogin;
     }
 }

@@ -138,6 +138,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="all\forgotpassword.aspx" />
+    <Content Include="all\newuser.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -145,6 +147,8 @@
     <Content Include="Content\new\css\maps\jquery-jvectormap-2.0.3.css" />
     <Content Include="Content\new\images\img.jpg" />
     <Content Include="Content\Site.css" />
+    <Content Include="examination.aspx" />
+    <Content Include="exam\Default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -152,9 +156,15 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ForgotPassword.aspx" />
     <Content Include="Index.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="NewSite.Master" />
+    <Content Include="all\all.master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="newuser.aspx" />
+    <Content Include="previousexams.aspx" />
+    <Content Include="reviewquestions.aspx" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -2752,7 +2762,9 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="showresult.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="takeexam.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -3576,6 +3588,7 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\DBUtil.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -3591,6 +3604,20 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="examination.aspx.cs">
+      <DependentUpon>examination.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="examination.aspx.designer.cs">
+      <DependentUpon>examination.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -3601,6 +3628,13 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NewSite.Master.cs">
       <DependentUpon>NewSite.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3608,7 +3642,35 @@
     <Compile Include="NewSite.Master.designer.cs">
       <DependentUpon>NewSite.Master</DependentUpon>
     </Compile>
+    <Compile Include="newuser.aspx.cs">
+      <DependentUpon>newuser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newuser.aspx.designer.cs">
+      <DependentUpon>newuser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="previousexams.aspx.cs">
+      <DependentUpon>previousexams.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="previousexams.aspx.designer.cs">
+      <DependentUpon>previousexams.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reviewquestions.aspx.cs">
+      <DependentUpon>reviewquestions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reviewquestions.aspx.designer.cs">
+      <DependentUpon>reviewquestions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="showresult.aspx.cs">
+      <DependentUpon>showresult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="showresult.aspx.designer.cs">
+      <DependentUpon>showresult.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3622,6 +3684,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="takeexam.aspx.cs">
+      <DependentUpon>takeexam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="takeexam.aspx.designer.cs">
+      <DependentUpon>takeexam.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

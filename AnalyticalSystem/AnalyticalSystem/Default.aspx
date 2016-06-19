@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/NewSite.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="AnalyticalSystem._Default" %>
+<%@ Import Namespace="AnalyticalSystem" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -8,14 +9,14 @@
             <div class="row top_tiles" style="margin: 10px 0;">
               <div class="col-md-3 col-sm-3 col-xs-6 tile">
                 <span>Барлық қолданушылар саны</span>
-                <h2>32</h2>
+                <h2><asp:Literal runat="server" ID="ltmembersCount"></asp:Literal></h2>
                 <span class="sparkline_one" style="height: 160px;">
                       <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
                   </span>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-6 tile">
                 <span>Жүйені қолдану көрсеткіші</span>
-                <h2>35%</h2>
+                <h2><asp:Literal runat="server" ID="ltUsagePersent"></asp:Literal></h2>
                 <span class="sparkline_two" style="height: 160px;">
                       <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
                   </span>
@@ -29,13 +30,16 @@
                 <div class="dashboard_graph x_panel">
                   <div class="row x_title">
                     <div class="col-md-6">
-                      <h3>Тестілеу көрсеткіші <small>5 пән</small></h3>
+                      <h3>Тестілеу көрсеткіші <small><asp:Literal runat="server" ID="ltSubjectCount"></asp:Literal> пән</small></h3>
                     </div>
                     <div class="col-md-6">
-                      <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+                        <asp:TextBox runat="server" ID="tbBegin" TextMode="Date" required></asp:TextBox>
+                        <asp:TextBox runat="server" ID="tbEnd" TextMode="Date" required></asp:TextBox>
+                        <asp:Button runat="server" ID="btnUpdate" Text="Жаңарту"/>
+                      <%--<div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
                         <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
                         <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
-                      </div>
+                      </div>--%>
                     </div>
                   </div>
                   <div class="x_content">
@@ -186,33 +190,33 @@
                         <table class="tile_info">
                           <tr>
                             <td>
-                              <p><i class="fa fa-square blue"></i>Қазақ тілі </p>
+                              <p><i class="fa fa-square aero"></i>Қазақ тілі </p>
                             </td>
-                            <td>30%</td>
+                            <td> <%=EntResults.Sum(s=>s.Kaz)*100 / GetSumAll%>%</td>
                           </tr>
                           <tr>
                             <td>
                               <p><i class="fa fa-square green"></i>Орыс тілі </p>
                             </td>
-                            <td>10%</td>
+                            <td> <%=EntResults.Sum(s=>s.Rus)*100 / GetSumAll%>%</td>
                           </tr>
                           <tr>
                             <td>
                               <p><i class="fa fa-square purple"></i>Қазақстан тарихы </p>
                             </td>
-                            <td>20%</td>
+                            <td> <%=EntResults.Sum(s=>s.History)*100 / GetSumAll%>%</td>
                           </tr>
                           <tr>
                             <td>
-                              <p><i class="fa fa-square aero"></i>Математика </p>
+                              <p><i class="fa fa-square blue"></i>Математика </p>
                             </td>
-                            <td>15%</td>
+                            <td> <%=EntResults.Sum(s=>s.Math)*100 / GetSumAll%>%</td>
                           </tr>
                           <tr>
                             <td>
                               <p><i class="fa fa-square red"></i>Таңдау пәні </p>
                             </td>
-                            <td>30%</td>
+                            <td> <%=EntResults.Sum(s=>s.Selected)*100 / GetSumAll%>%</td>
                           </tr>
                         </table>
                       </td>
@@ -231,25 +235,34 @@
         <!-- Flot -->
     <script>
       $(document).ready(function() {
-        //random data
-        var d1 = [
-          [0, 77],
-          [1, 90],
-          [2, 60],
-          [3, 100],
-          [4, 50],
-          [5, 85],
-          [6, 68],
-          [7, 110],
-          [8, 70],
-          [9, 110],
-          [10, 98],
-          [11, 90],
-          [12, 95],
-          [13, 105],
-          [14, 102],
-          [15, 115],
-          [16, 117]
+          //random data
+          var d1 = [
+          <% if (EntResults != null && EntResults.Count > 0)
+             {
+                 for (int index = 0; index < EntResults.Count; index++)
+                 {
+                     EntResult result = EntResults[index];
+                %>[<%=index %>, <%=result.GetSum %>],<%
+                 }
+             }%>
+       
+          
+          //[1, 90],
+          //[2, 60],
+          //[3, 100],
+          //[4, 50],
+          //[5, 85],
+          //[6, 68],
+          //[7, 110],
+          //[8, 70],
+          //[9, 110],
+          //[10, 98],
+          //[11, 90],
+          //[12, 95],
+          //[13, 105],
+          //[14, 102],
+          //[15, 115],
+          //[16, 117]
         ];
 
         //flot options
@@ -337,7 +350,21 @@
               "Математика"
             ],
             datasets: [{
-              data: [15, 20, 30, 10, 30],
+                data: [
+                    <% if (EntResults!=null && EntResults.Count>0)
+                       {
+                           
+
+                           %> 
+                    
+                    <%=(EntResults.Sum(s=>s.Kaz)*100) / GetSumAll%>,
+                    <%=(EntResults.Sum(s=>s.Rus)*100) / GetSumAll%>,
+                    <%=(EntResults.Sum(s=>s.History)*100) / GetSumAll%>,
+                    <%=(EntResults.Sum(s=>s.Math)*100) / GetSumAll%>,
+                    <%=(EntResults.Sum(s=>s.Selected)*100) / GetSumAll%>,
+                    <%
+                       } %>
+                    ],
               backgroundColor: [
                 "#BDC3C7",
                 "#9B59B6",
@@ -366,7 +393,7 @@
 
         var cb = function(start, end, label) {
           console.log(start.toISOString(), end.toISOString(), label);
-          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+          //$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
         };
 
         var optionSet1 = {
@@ -407,29 +434,29 @@
             firstDay: 1
           }
         };
-        $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
-        $('#reportrange').daterangepicker(optionSet1, cb);
-        $('#reportrange').on('show.daterangepicker', function() {
-          console.log("show event fired");
-        });
-        $('#reportrange').on('hide.daterangepicker', function() {
-          console.log("hide event fired");
-        });
-        $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
-          console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
-        });
-        $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
-          console.log("cancel event fired");
-        });
-        $('#options1').click(function() {
-          $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
-        });
-        $('#options2').click(function() {
-          $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
-        });
-        $('#destroy').click(function() {
-          $('#reportrange').data('daterangepicker').remove();
-        });
+        //$('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+        //$('#reportrange').daterangepicker(optionSet1, cb);
+        //$('#reportrange').on('show.daterangepicker', function() {
+        //  console.log("show event fired");
+        //});
+        //$('#reportrange').on('hide.daterangepicker', function() {
+        //  console.log("hide event fired");
+        //});
+        //$('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+        //  console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+        //});
+        //$('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
+        //  console.log("cancel event fired");
+        //});
+        //$('#options1').click(function() {
+        //  $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
+        //});
+        //$('#options2').click(function() {
+        //  $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
+        //});
+        //$('#destroy').click(function() {
+        //  $('#reportrange').data('daterangepicker').remove();
+        //});
       });
     </script>
     <!-- /bootstrap-daterangepicker -->
